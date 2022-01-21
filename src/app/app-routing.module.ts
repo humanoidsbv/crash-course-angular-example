@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PlannerModule } from './planner/planner.module';
-import { RecipesModule } from './recipes/recipes.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { OverviewComponent } from './planner/overview/overview.component';
+import { ListComponent } from './recipes/list/list.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'planner', component: OverviewComponent },
+  { path: 'recipes', component: ListComponent },
+  { path: '', component: OverviewComponent },
+  { path: '**', component: PageNotFoundComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

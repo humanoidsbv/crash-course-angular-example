@@ -8,9 +8,10 @@ import { PlannerModule } from './planner/planner.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ModalComponent } from './modal/modal.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, ModalComponent],
+  declarations: [AppComponent, NavigationComponent, ModalComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

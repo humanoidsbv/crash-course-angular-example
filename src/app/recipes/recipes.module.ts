@@ -1,17 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DetailsComponent } from './details/details.component';
-import { OverviewComponent } from './overview/overview.component';
-
-
+import { ListComponent } from './list/list.component';
 
 @NgModule({
-  declarations: [
-    DetailsComponent,
-    OverviewComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ListComponent],
+  imports: [CommonModule],
+  exports: [ListComponent],
 })
-export class RecipesModule { }
+export class RecipesModule {}
