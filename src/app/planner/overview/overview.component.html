@@ -1,0 +1,15 @@
+<div class="layout">
+  <main>
+    <app-card
+      *ngFor="let meal of plannedMeals"
+      imgUrl="meal.imgUrl"
+      [portions]="meal.portions"
+      [id]="meal.id"
+      (remove)="remove($event)"
+    >
+      {{ meal.title }}
+    </app-card>
+    <button class="card" (click)="onClick()">+</button>
+  </main>
+  <aside></aside>
+</div>
