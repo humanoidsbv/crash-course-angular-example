@@ -1,0 +1,11 @@
+<div
+  class="backdrop"
+  [ngClass]="isOpen ? 'open' : ''"
+  (click)="onBackdropClick()"
+></div>
+<button (click)="onClick()">Menu</button>
+<ul [ngClass]="isOpen ? 'open' : ''">
+  <li *ngFor="let item of items">
+    <a [routerLink]="item.routerLink">{{ item.text }}</a>
+  </li>
+</ul>
