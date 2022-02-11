@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OverviewComponent } from './overview/overview.component';
 import { CardComponent } from './card/card.component';
 import { SharedModule } from '../shared/shared.module';
+import { PlannerComponent } from './planner/planner.component';
 
 @NgModule({
-  declarations: [OverviewComponent, CardComponent],
+  declarations: [CardComponent, PlannerComponent],
   imports: [CommonModule, SharedModule],
-  exports: [OverviewComponent],
+  exports: [PlannerComponent],
 })
 export class PlannerModule {}

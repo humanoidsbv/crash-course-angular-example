@@ -5,6 +5,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { AsideComponent } from './components/aside/aside.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { LayoutComponent } from './components/layout/layout.component';
     DropdownComponent,
     NavigationComponent,
     LayoutComponent,
+    ModalComponent,
   ],
   imports: [CommonModule, AppRoutingModule],
   exports: [

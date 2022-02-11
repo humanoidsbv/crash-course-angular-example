@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss'],
+  selector: 'app-planner',
+  templateUrl: './planner.component.html',
+  styleUrls: ['./planner.component.scss'],
 })
-export class OverviewComponent implements OnInit {
+export class PlannerComponent implements OnInit {
   img =
     'https://smaakmenutie.nl/wp-content/uploads/2019/03/Pasta-met-broccoli-en-zalm-in-roomsaus-2.jpg';
   id = 2;

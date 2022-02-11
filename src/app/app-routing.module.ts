@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { OverviewComponent } from './planner/overview/overview.component';
-import { ListComponent } from './recipes/list/list.component';
+import { PlannerComponent } from './planner/planner/planner.component';
+import { RecipesComponent } from './recipes/recipes/recipes.component';
 
 const routes: Routes = [
-  { path: 'planner', component: OverviewComponent },
-  { path: 'recipes', component: ListComponent },
-  { path: '', component: OverviewComponent },
+  { path: 'planner', component: PlannerComponent },
+  { path: 'recipes', component: RecipesComponent },
+  { path: '', component: PlannerComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
