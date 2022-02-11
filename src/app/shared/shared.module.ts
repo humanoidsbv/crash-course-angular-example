@@ -22,6 +22,7 @@ import { RecipesService } from './services/recipes.service';
     DropdownComponent,
     NavigationComponent,
     LayoutComponent,
+    ModalComponent,
   ],
 })
 export class SharedModule {}

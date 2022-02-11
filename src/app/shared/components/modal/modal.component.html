@@ -1,1 +1,5 @@
-<p>modal works!</p>
+<div class="backdrop" [ngClass]="{ hidden: !isOpen }" (click)="close()">
+  <dialog [open]="isOpen">
+    <ng-content></ng-content>
+  </dialog>
+</div>
