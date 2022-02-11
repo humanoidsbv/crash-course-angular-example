@@ -1,12 +1,15 @@
 <app-layout>
   <div class="card-grid">
     <app-new-recipe-button (click)="openModal()"></app-new-recipe-button>
-    <app-card *ngFor="let recipe of recipes" [img]="recipe.img">{{
-      recipe.name
-    }}</app-card>
+    <app-card
+      *ngFor="let recipe of recipes"
+      [img]="recipe.img"
+      (click)="selectRecipe(recipe.id)"
+      >{{ recipe.name }}</app-card
+    >
   </div>
   <app-aside aside>
-    <app-edit-recipe></app-edit-recipe>
+    <app-details></app-details>
   </app-aside>
   <app-modal></app-modal>
 </app-layout>

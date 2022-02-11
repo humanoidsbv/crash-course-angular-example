@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Recipe } from '../models/recipe.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipesService {
+  private selected: number | null = null;
+
   private data: Recipe[] = [
     {
+      id: 0,
       name: 'Pasta zalm met spinazie en cherrytomaten',
       img: '../../../assets/images/pasta-met-zalm.jpeg',
       description:
@@ -41,6 +45,7 @@ export class RecipesService {
       serves: 2,
     },
     {
+      id: 1,
       name: 'Bloemkool curry',
       img: '../../../assets/images/curry-bloemkool.jpg',
       description:
@@ -103,22 +108,84 @@ export class RecipesService {
       serves: 4,
     },
     {
+      id: 2,
       name: 'Gado gado noedels',
       img: '../../../assets/images/noedels.jpg',
-      description: 'Test',
-      ingredients: [],
+      description:
+        'Kook de penne volgens de bereidingswijze op de verpakking. De ui en prei in stukjes snijden en dit bakken in een pan met boter. Schenk de crème fraîche en de room culinair erbij. Zalm in kleine stukjes snijden. De kruidenboter, zalm en geraspte kaas bij de pan in doen. Alles nog even warm laten worden en dan serveren.',
+      ingredients: [
+        {
+          name: 'Tagliatelle',
+          amount: 200,
+          unit: 'gram',
+        },
+        {
+          name: 'Cherrytomaten',
+          amount: 100,
+          unit: 'gram',
+        },
+        {
+          name: 'Spinazie',
+          amount: 200,
+          unit: 'gram',
+        },
+        {
+          name: 'Zalm',
+          amount: 200,
+          unit: 'gram',
+        },
+        {
+          name: 'Pijnboompitten',
+          amount: 1,
+          unit: 'handje',
+        },
+      ],
       serves: 2,
     },
     {
+      id: 3,
       name: 'Tagliatelle met paprika roomsaus',
       img: '../../../assets/images/tagliatelle-paprika.jpg',
-      description: 'Test',
-      ingredients: [],
+      description:
+        'Kook de penne volgens de bereidingswijze op de verpakking. De ui en prei in stukjes snijden en dit bakken in een pan met boter. Schenk de crème fraîche en de room culinair erbij. Zalm in kleine stukjes snijden. De kruidenboter, zalm en geraspte kaas bij de pan in doen. Alles nog even warm laten worden en dan serveren.',
+      ingredients: [
+        {
+          name: 'Tagliatelle',
+          amount: 200,
+          unit: 'gram',
+        },
+        {
+          name: 'Cherrytomaten',
+          amount: 100,
+          unit: 'gram',
+        },
+        {
+          name: 'Spinazie',
+          amount: 200,
+          unit: 'gram',
+        },
+        {
+          name: 'Zalm',
+          amount: 200,
+          unit: 'gram',
+        },
+        {
+          name: 'Pijnboompitten',
+          amount: 1,
+          unit: 'handje',
+        },
+      ],
       serves: 2,
     },
   ];
 
-  constructor() {}
+  selectedRecipeChange: Subject<number> = new Subject<number>();
+
+  constructor() {
+    this.selectedRecipeChange.subscribe((value) => {
+      this.selected = value;
+    });
+  }
 
   get recipes() {
     return this.data;
@@ -126,5 +193,17 @@ export class RecipesService {
 
   set recipes(newRecipes) {
     this.recipes = newRecipes;
+  }
+
+  get selectedRecipe() {
+    return this.selected;
+  }
+
+  selectRecipe(id: number) {
+    this.selectedRecipeChange.next(id);
+  }
+
+  getRecipeById(id: number) {
+    return this.data.find((recipe) => recipe.id === id);
   }
 }

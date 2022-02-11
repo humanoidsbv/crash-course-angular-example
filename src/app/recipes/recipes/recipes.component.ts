@@ -23,4 +23,8 @@ export class RecipesComponent implements OnInit {
   openModal() {
     this.modalService.open();
   }
+
+  selectRecipe(id: number) {
+    this.recipesService.selectRecipe(id);
+  }
 }

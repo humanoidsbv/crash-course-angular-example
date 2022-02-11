@@ -1,0 +1,17 @@
+<div *ngIf="selectedRecipe">
+  <h2>
+    {{ this.selectedRecipe.name }}
+  </h2>
+  <h3>{{ this.selectedRecipe.serves }} personen</h3>
+  <h4>Ingredienten</h4>
+  <ul>
+    <li *ngFor="let ingredient of selectedRecipe.ingredients">
+      {{ ingredient.amount }}
+      {{ ingredient.unit }}
+      {{ ingredient.name }}
+    </li>
+  </ul>
+  <p>
+    {{ selectedRecipe.description }}
+  </p>
+</div>
