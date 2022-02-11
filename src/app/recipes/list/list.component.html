@@ -1,4 +1,8 @@
 <app-layout>
-  <div></div>
-  <app-aside aside></app-aside>
+  <div class="card-grid">
+    <app-card *ngFor="let recipe of recipes">{{ recipe.name }}</app-card>
+  </div>
+  <app-aside aside>
+    <app-edit-recipe></app-edit-recipe>
+  </app-aside>
 </app-layout>
