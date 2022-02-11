@@ -1,5 +1,15 @@
 .card {
-  min-width: 80px;
-  min-height: 80px;
-  background-color: pink;
+  box-shadow: 0px 5px 20px #efefef;
+  object-fit: cover;
+  overflow: hidden;
+  max-height: 300px;
+
+  img {
+    background-color: aliceblue;
+    min-width: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
 }

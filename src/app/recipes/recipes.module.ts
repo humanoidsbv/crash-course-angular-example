@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CardComponent } from './card/card.component';
 import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { RecipesService } from '../shared/services/recipes.service';
 
 @NgModule({
   declarations: [CardComponent, EditRecipeComponent, RecipesComponent],

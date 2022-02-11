@@ -6,6 +6,7 @@ import { AsideComponent } from './components/aside/aside.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { RecipesService } from './services/recipes.service';
 
 @NgModule({
   declarations: [
