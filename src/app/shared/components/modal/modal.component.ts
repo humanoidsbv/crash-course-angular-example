@@ -7,17 +7,23 @@ import { ModalService } from '../../services/modal.service';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
-  isOpen = false;
+  @Input() id!: number;
+  isOpen: number[] = [];
 
   constructor(private modalService: ModalService) {}
 
   ngOnInit(): void {
     this.modalService.modalOpenChange.subscribe((value) => {
+      console.log('got here3', this.isOpen);
       this.isOpen = value;
     });
   }
 
   close() {
-    this.modalService.close();
+    this.modalService.close(this.id);
+  }
+
+  onModalClick(e: Event) {
+    e.stopImmediatePropagation();
   }
 }

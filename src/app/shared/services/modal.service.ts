@@ -5,9 +5,9 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class ModalService {
-  isOpen = false;
+  isOpen: number[] = [];
 
-  modalOpenChange: Subject<boolean> = new Subject<boolean>();
+  modalOpenChange: Subject<number[]> = new Subject<number[]>();
 
   constructor() {
     this.modalOpenChange.subscribe((value) => {
@@ -15,15 +15,15 @@ export class ModalService {
     });
   }
 
-  toggleOpen() {
-    this.modalOpenChange.next(!this.isOpen);
+  toggleOpen(id: number) {
+    this.isOpen.includes(id) ? this.close(id) : this.open(id);
   }
 
-  open() {
-    this.modalOpenChange.next(true);
+  open(id: number) {
+    this.modalOpenChange.next((this.isOpen = [...this.isOpen, id]));
   }
 
-  close() {
-    this.modalOpenChange.next(false);
+  close(id: number) {
+    this.modalOpenChange.next(this.isOpen.filter((openId) => id !== openId));
   }
 }

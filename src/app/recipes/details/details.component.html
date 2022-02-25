@@ -14,4 +14,12 @@
   <p>
     {{ selectedRecipe.description }}
   </p>
+  <app-button (click)="openModal()">Delete</app-button>
+  <app-modal [id]="modalId">
+    <h2 title>Weet je zeker dat je dit recept wil verwijderen?</h2>
+    <app-button (click)="onDelete(selectedRecipe.id)">Ja</app-button>
+    <app-button type="primary" (click)="closeModal()" type="secondary"
+      >Nee</app-button
+    >
+  </app-modal>
 </div>

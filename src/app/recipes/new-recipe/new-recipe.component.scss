@@ -10,8 +10,30 @@ form {
     padding: 10px 20px;
   }
 
+  .ingredients {
+    margin-bottom: 40px;
+
+    &.ingredient {
+      margin-bottom: 20px;
+    }
+
+    label {
+      margin-right: 8px;
+
+      &:not(:first-child) {
+        margin-left: 16px;
+      }
+    }
+  }
+
   .buttonbar {
     display: flex;
     justify-content: flex-end;
+
+    ::content {
+      &:not(:first-child) {
+        margin-left: 8px;
+      }
+    }
   }
 }

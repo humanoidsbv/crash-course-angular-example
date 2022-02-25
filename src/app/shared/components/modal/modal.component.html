@@ -1,8 +1,12 @@
-<div class="backdrop" [ngClass]="{ hidden: !isOpen }" (click)="close()">
-  <dialog [open]="isOpen">
+<div
+  class="backdrop"
+  [ngClass]="{ hidden: !isOpen.includes(id) }"
+  (click)="close()"
+>
+  <dialog [open]="isOpen.includes(id)" (click)="onModalClick($event)">
     <div class="header">
       <ng-content select="[title]"></ng-content>
-      <app-button type="minimal">X</app-button>
+      <app-button (click)="close()" type="minimal">X</app-button>
     </div>
     <ng-content></ng-content>
   </dialog>

@@ -1,8 +1,10 @@
 <button
   [ngClass]="{
-    seocondary: type === 'secondary',
-    minimal: type === 'minimal'
+    secondary: type === 'secondary',
+    minimal: type === 'minimal',
+    disabled: this.disabled
   }"
+  [disabled]="disabled"
 >
   <ng-content></ng-content>
 </button>

@@ -1,6 +1,12 @@
 <form [formGroup]="newRecipeForm">
-  <label for="name">Name</label>
-  <input id="name" type="text" formControlName="name" />
+  <label for="recipename">Name *</label>
+  <input id="recipename" type="text" formControlName="recipename" />
+
+  <label for="img">Image url *</label>
+  <input type="text" id="img" formControlName="img" />
+
+  <label for="serves">Serves *</label>
+  <input type="number" id="serves" formControlName="serves" />
 
   <label for="description">Description</label>
   <textarea
@@ -9,14 +15,30 @@
     formControlName="description"
   ></textarea>
 
-  <label for="img">Image</label>
-  <input type="text" id="img" formControlName="img" />
-
-  <label for="serves">Serves</label>
-  <input type="number" id="serves" formControlName="serves" />
+  <h3>Ingredients</h3>
+  <div formArrayName="ingredients" class="ingredients">
+    <div *ngFor="let ingredient of ingredients.controls; index as i">
+      <div [formGroupName]="i" class="ingredient">
+        <label class="ingredientlabel" for="name">Name *</label>
+        <input type="text" id="name" formControlName="name" />
+        <label class="ingredientlabel" for="amount">Amount *</label>
+        <input type="number" id="amount" formControlName="amount" />
+        <label class="ingredientlabel" for="unit">Unit</label>
+        <input type="text" id="unit" formControlName="unit" />
+        <app-button type="minimal" (click)="onRemoveIngredient(i)"
+          >X</app-button
+        >
+      </div>
+    </div>
+    <div class="buttonbar">
+      <app-button type="secondary" (click)="onAddIngredient()">+</app-button>
+    </div>
+  </div>
 
   <div class="buttonbar">
-    <app-button type="secondary">Cancel</app-button>
-    <app-button>Add recipe</app-button>
+    <app-button type="secondary" (click)="onClose()">Cancel</app-button>
+    <app-button (click)="onAdd()" [disabled]="!newRecipeForm.valid"
+      >Add recipe</app-button
+    >
   </div>
 </form>

@@ -179,7 +179,8 @@ export class RecipesService {
     },
   ];
 
-  selectedRecipeChange: Subject<number> = new Subject<number>();
+  recipesChange: Subject<Recipe[]> = new Subject<Recipe[]>();
+  selectedRecipeChange: Subject<number | null> = new Subject<number | null>();
 
   constructor() {
     this.selectedRecipeChange.subscribe((value) => {
@@ -197,6 +198,18 @@ export class RecipesService {
 
   get selectedRecipe() {
     return this.selected;
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.data = [...this.recipes, recipe];
+    this.recipesChange.next(this.data);
+  }
+
+  deleteRecipe(id: number) {
+    this.data = this.data.filter((recipe) => recipe.id !== id);
+    this.recipesChange.next(this.data);
+    this.selected = null;
+    this.selectedRecipeChange.next(null);
   }
 
   selectRecipe(id: number) {

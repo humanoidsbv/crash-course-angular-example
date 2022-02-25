@@ -5,14 +5,17 @@
       *ngFor="let recipe of recipes"
       [img]="recipe.img"
       (click)="selectRecipe(recipe.id)"
-      >{{ recipe.name }}</app-card
+      [name]="recipe.name"
+      [id]="recipe.id"
     >
+      {{ recipe.name }}
+    </app-card>
   </div>
   <app-aside aside>
     <app-details></app-details>
   </app-aside>
-  <app-modal>
+  <app-modal [id]="modalId">
     <h2 title>New recipe</h2>
-    <app-new-recipe></app-new-recipe>
+    <app-new-recipe (close)="closeModal()"></app-new-recipe>
   </app-modal>
 </app-layout>

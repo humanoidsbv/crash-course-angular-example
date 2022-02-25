@@ -1,6 +1,8 @@
-<div class="card">
-  <img [src]="img" alt="" />
-  <div>
-    <ng-content></ng-content>
+<div class="card" [ngClass]="{ selected: this.selected }">
+  <div class="image-container">
+    <img [src]="img" alt="" />
+  </div>
+  <div class="title-container">
+    <h3>{{ name }}</h3>
   </div>
 </div>

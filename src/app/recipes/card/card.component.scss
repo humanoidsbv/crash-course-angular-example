@@ -1,16 +1,35 @@
 .card {
   box-shadow: 0px 5px 20px #efefef;
-  object-fit: cover;
-  overflow: hidden;
-  max-height: 300px;
+  border: 1px solid #efefef;
   cursor: pointer;
+  box-sizing: border-box;
+
+  .image-container {
+    object-fit: cover;
+    overflow: hidden;
+    max-height: 300px;
+  }
 
   img {
-    background-color: aliceblue;
+    background-color: #efefef;
     min-width: 100%;
     min-height: 300px;
     object-fit: cover;
     object-position: center;
     width: 100%;
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  &.selected {
+    border: 1px solid #2c998a;
   }
 }

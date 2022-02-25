@@ -10,6 +10,7 @@ import { Recipe } from '../../shared/models/recipe.model';
 })
 export class RecipesComponent implements OnInit {
   recipes: Recipe[] = [];
+  modalId = 1;
 
   constructor(
     private recipesService: RecipesService,
@@ -18,10 +19,17 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipes = this.recipesService.recipes;
+    this.recipesService.recipesChange.subscribe((value) => {
+      this.recipes = value;
+    });
   }
 
   openModal() {
-    this.modalService.open();
+    this.modalService.open(this.modalId);
+  }
+
+  closeModal() {
+    this.modalService.close(this.modalId);
   }
 
   selectRecipe(id: number) {
