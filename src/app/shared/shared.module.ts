@@ -7,6 +7,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { RecipesService } from './services/recipes.service';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RecipesService } from './services/recipes.service';
     NavigationComponent,
     LayoutComponent,
     ModalComponent,
+    ButtonComponent,
   ],
   imports: [CommonModule, AppRoutingModule],
   exports: [
@@ -23,6 +25,7 @@ import { RecipesService } from './services/recipes.service';
     NavigationComponent,
     LayoutComponent,
     ModalComponent,
+    ButtonComponent,
   ],
 })
 export class SharedModule {}

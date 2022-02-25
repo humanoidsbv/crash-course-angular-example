@@ -1,5 +1,9 @@
 <div class="backdrop" [ngClass]="{ hidden: !isOpen }" (click)="close()">
   <dialog [open]="isOpen">
+    <div class="header">
+      <ng-content select="[title]"></ng-content>
+      <app-button type="minimal">X</app-button>
+    </div>
     <ng-content></ng-content>
   </dialog>
 </div>

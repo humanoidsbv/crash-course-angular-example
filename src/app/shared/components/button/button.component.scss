@@ -1,0 +1,29 @@
+button {
+  border: none;
+  background-color: rgb(44, 153, 138);
+  padding: 15px 35px;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(34, 119, 107);
+  }
+
+  &.secondary {
+    background-color: rgb(132, 143, 141);
+
+    &:hover {
+      background-color: rgb(87, 107, 104);
+    }
+  }
+
+  &.minimal {
+    background-color: none;
+
+    &:hover {
+      background-color: rgb(131, 148, 146);
+    }
+  }
+}

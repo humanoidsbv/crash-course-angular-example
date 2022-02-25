@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  flex-direction: column;
+
+  input,
+  textarea {
+    border: 1px solid slategrey;
+    border-radius: none;
+    margin: 10px 0 20px 0;
+    padding: 10px 20px;
+  }
+
+  .buttonbar {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
